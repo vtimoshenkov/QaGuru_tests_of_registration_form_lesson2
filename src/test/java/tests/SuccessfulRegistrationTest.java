@@ -48,4 +48,25 @@ public class SuccessfulRegistrationTest extends TestBase {
         $(".table-responsive").shouldHave(text("State and City " + "NCR Delhi"));
 
     }
+    @Test
+    void successfulRegistrationWithOnlyRequiredFields() {
+        open("/automation-practice-form");
+        $("[id=firstName]").setValue("John");
+        $("[id=lastName]").setValue("Lock");
+        $("[id=userEmail]").setValue("test@test.com");
+        $(byText("Male")).click();
+        $("[id=userNumber]").setValue("8911449492");
+        $("[id=dateOfBirthInput]").click();
+        $(".react-datepicker__day.react-datepicker__day--016").click();
+        $("[id=submit]").scrollTo().click();
+
+
+        $(".modal-content").shouldBe(visible);
+        $(".table-responsive").shouldHave(text("Student Name " + "John Lock"));
+        $(".table-responsive").shouldHave(text("Student Email " + "test@test.com"));
+        $(".table-responsive").shouldHave(text("Gender " + "Male"));
+        $(".table-responsive").shouldHave(text("Mobile " + "8911449492"));
+        $(".table-responsive").shouldHave(text("Date of Birth " + "16 October,2026"));
+
+    }
 }
