@@ -24,7 +24,7 @@ public class SuccessfulRegistrationTest extends TestBase {
         $(byText("Male")).click();
         $("[id=userNumber]").setValue("8911449492");
         $("[id=dateOfBirthInput]").click();
-
+        $(".react-datepicker__day.react-datepicker__day--016").click();
         $("[id=subjectsInput]").setValue("Maths").pressEnter();
         $(byText("Music")).click();
 
@@ -40,7 +40,7 @@ public class SuccessfulRegistrationTest extends TestBase {
         $(".table-responsive").shouldHave(text("Student Email " + "test@test.com"));
         $(".table-responsive").shouldHave(text("Gender " + "Male"));
         $(".table-responsive").shouldHave(text("Mobile " + "8911449492"));
-        $(".table-responsive").shouldHave(text("Date of Birth " + "02 October,2026"));
+        $(".table-responsive").shouldHave(text("Date of Birth " + "16 October,2026"));
         $(".table-responsive").shouldHave(text("Subjects " + "Maths"));
         $(".table-responsive").shouldHave(text("Hobbies " + "Music"));
         $(".table-responsive").shouldHave(text("Picture " + "image.png"));
