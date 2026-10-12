@@ -26,7 +26,7 @@ public class NegativeRegistrationTests extends TestBase {
     }
 
     @Test
-    void registrationWhithEmptyFields() {
+    void registrationWithEmptyFields() {
         open("/automation-practice-form");
         $("[id=submit]").scrollTo().click();
 
