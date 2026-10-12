@@ -1,6 +1,5 @@
 package tests;
 
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;
@@ -11,17 +10,13 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class SuccessfulRegistrationTest extends TestBase {
 
-    @AfterEach
-            void closemodal() {
-        $("#closeLargeModal").click();
-    }
     @Test
     void successfulFillFormTest() {
         open("/automation-practice-form");
         $("[id=firstName]").setValue("John");
         $("[id=lastName]").setValue("Lock");
         $("[id=userEmail]").setValue("test@test.com");
-        $(byText("Male")).click();
+        $("[id=genterWrapper]").$(byText("Male")).click();
         $("[id=userNumber]").setValue("8911449492");
         $("[id=dateOfBirthInput]").click();
         $(".react-datepicker__day.react-datepicker__day--016").click();
@@ -36,16 +31,16 @@ public class SuccessfulRegistrationTest extends TestBase {
 
 
         $(".modal-content").shouldBe(visible);
-        $(".table-responsive").shouldHave(text("Student Name " + "John Lock"));
-        $(".table-responsive").shouldHave(text("Student Email " + "test@test.com"));
-        $(".table-responsive").shouldHave(text("Gender " + "Male"));
-        $(".table-responsive").shouldHave(text("Mobile " + "8911449492"));
-        $(".table-responsive").shouldHave(text("Date of Birth " + "16 October,2026"));
-        $(".table-responsive").shouldHave(text("Subjects " + "Maths"));
-        $(".table-responsive").shouldHave(text("Hobbies " + "Music"));
-        $(".table-responsive").shouldHave(text("Picture " + "image.png"));
-        $(".table-responsive").shouldHave(text("Address " + "first address 1"));
-        $(".table-responsive").shouldHave(text("State and City " + "NCR Delhi"));
+        $(".table-responsive").$(byText("Student Name")).parent().shouldHave(text("John Lock"));
+        $(".table-responsive").$(byText("Student Email")).parent().shouldHave(text("test@test.com"));
+        $(".table-responsive").$(byText("Gender")).parent().shouldHave(text("Male"));
+        $(".table-responsive").$(byText("Mobile")).parent().shouldHave(text("8911449492"));
+        $(".table-responsive").$(byText("Date of Birth")).parent().shouldHave(text("16 October,2026"));
+        $(".table-responsive").$(byText("Subjects")).parent().shouldHave(text("Maths"));
+        $(".table-responsive").$(byText("Hobbies")).parent().shouldHave(text("Music"));
+        $(".table-responsive").$(byText("Picture")).parent().shouldHave(text("image.png"));
+        $(".table-responsive").$(byText("Address")).parent().shouldHave(text("first address 1"));
+        $(".table-responsive").$(byText("State and City")).parent().shouldHave(text("NCR Delhi"));
 
     }
     @Test
@@ -54,7 +49,7 @@ public class SuccessfulRegistrationTest extends TestBase {
         $("[id=firstName]").setValue("John");
         $("[id=lastName]").setValue("Lock");
         $("[id=userEmail]").setValue("test@test.com");
-        $(byText("Male")).click();
+        $("[id=genterWrapper]").$(byText("Male")).click();
         $("[id=userNumber]").setValue("8911449492");
         $("[id=dateOfBirthInput]").click();
         $(".react-datepicker__day.react-datepicker__day--016").click();
@@ -62,11 +57,11 @@ public class SuccessfulRegistrationTest extends TestBase {
 
 
         $(".modal-content").shouldBe(visible);
-        $(".table-responsive").shouldHave(text("Student Name " + "John Lock"));
-        $(".table-responsive").shouldHave(text("Student Email " + "test@test.com"));
-        $(".table-responsive").shouldHave(text("Gender " + "Male"));
-        $(".table-responsive").shouldHave(text("Mobile " + "8911449492"));
-        $(".table-responsive").shouldHave(text("Date of Birth " + "16 October,2026"));
+        $(".table-responsive").$(byText("Student Name")).parent().shouldHave(text("John Lock"));
+        $(".table-responsive").$(byText("Student Email")).parent().shouldHave(text("test@test.com"));
+        $(".table-responsive").$(byText("Gender")).parent().shouldHave(text("Male"));
+        $(".table-responsive").$(byText("Mobile")).parent().shouldHave(text("8911449492"));
+        $(".table-responsive").$(byText("Date of Birth")).parent().shouldHave(text("16 October,2026"));
 
     }
 }

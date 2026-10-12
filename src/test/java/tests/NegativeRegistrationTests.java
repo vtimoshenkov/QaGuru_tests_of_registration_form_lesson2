@@ -14,7 +14,7 @@ public class NegativeRegistrationTests extends TestBase {
         open("/automation-practice-form");
         $("[id=firstName]").setValue("John");
         $("[id=userEmail]").setValue("test@test.com");
-        $(byText("Male")).click();
+        $("[id=genterWrapper]").$(byText("Male")).click();
         $("[id=userNumber]").setValue("8911449492");
         $("[id=dateOfBirthInput]").click();
         $(".react-datepicker__day.react-datepicker__day--016").click();
